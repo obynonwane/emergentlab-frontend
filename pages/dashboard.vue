@@ -29,20 +29,20 @@
             v-bind:class="{ active: isActive1 }"
             @click="activate1()"
             href="#home"
-            ><v-icon>mdi-folder</v-icon></a
+            ><v-img src="icon1.png"> </v-img></a
           >
           <a
             v-bind:class="{ active: isActive2 }"
             @click="activate2()"
             href="#news"
-            ><v-icon>mdi-group</v-icon></a
+            ><v-img src="icon2.png"> </v-img></a
           >
           <a
             class="outer-a"
             v-bind:class="{ active: isActive3 }"
             @click="activate3()"
             href="#contact"
-            ><v-icon>mdi-folder</v-icon></a
+            ><v-img src="icon3.png"> </v-img></a
           >
         </div>
       </div>
@@ -131,17 +131,17 @@ export default {
 
 /* Sidebar links */
 .sidebar a {
-  width: 200;
+  width: 100px;
   display: block;
   color: black;
-  padding: 40px;
+  padding: 35px;
   text-decoration: none;
 }
 
 /* Active/current link */
 .sidebar a.active {
   background-color: #ffffff;
-  border-left: 18px solid #2bda53;
+  border-left: 15px solid #2bda53;
   color: white;
 }
 

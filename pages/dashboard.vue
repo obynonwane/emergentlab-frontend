@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div id="textbox" class="col-xs-10 main-display">
+      <div class="col-xs-10 main-display">
         <p class="alignleft">Text on the left.</p>
         <p class="alignright">Text on the right.</p>
       </div>

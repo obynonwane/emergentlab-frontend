@@ -137,15 +137,15 @@ export default {
   width: 100px;
   display: block;
   color: black;
-  padding: 35px;
+  padding: 33px;
   text-decoration: none;
 }
 
 /* Active/current link */
 .sidebar a.active {
   background-color: #ffffff;
-  border-left: 20px solid #2bda53;
-  color: white;
+  border-left: 19px solid #2bda53;
+  color: #2bda53;
 }
 
 /* Links on mouse-over */

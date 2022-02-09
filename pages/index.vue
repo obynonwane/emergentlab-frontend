@@ -2,7 +2,16 @@
   <div class="container-fluid p-0">
     <div class="row no-gutters">
       <div class="left-side-landing col-xs-12 col-sm-6 col-md-6">
-        <section></section>
+        <!-- <section class="overlay-section">
+          <p>No Hazzles</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed
+            do eiusmod.
+          </p>
+        </section>
+        <section  class="overlay-image">
+          <v-img class="overlay-img" src="sliderdot.png"></v-img>
+        </section> -->
       </div>
 
       <div class="col-xs-12 col-sm-6 col-md-6">
@@ -11,7 +20,7 @@
             <section class="head-text">
               <p class="signup-header">Create your free account</p>
               <p class="signup-subtext">
-                Already registered? <span class="subtext-in">Sign in</span>
+                Already registered? <span class="subtext-in"> <nuxt-link to="/dashboard" style="color:#2bda53;  text-decoration: none;">Sign in</nuxt-link></span>
               </p>
             </section>
           </div>
@@ -62,7 +71,7 @@
                         name="input-10-2"
                         label="Password"
                         hint="At least 8 characters"
-                        value="Pa"
+                        v-model="userPassword"
                         error
                         @click:append="show1 = !show1"
                         required
@@ -74,8 +83,9 @@
                         type="button"
                         class="btn btn-lg btn-success btn-inner"
                       >
-                        Success
+                        <nuxt-link to="/dashboard" style="color:#FFFFFF;  text-decoration: none;">Continue </nuxt-link>
                       </button>
+
                     </section>
                   </v-row>
                   <!-- </v-container> -->
@@ -84,7 +94,7 @@
             </div>
           </div>
         </div>
-        <div class="row bottom-section ">
+        <div class="row bottom-section">
           <div class="col-xs-12 col-sm-6 d-flex justify-content-center">
             <p class="footer-test">
               By siging up, you agree to our
@@ -112,16 +122,17 @@ export default {
       show1: false,
       password: "Password",
       rules: {
-        required: (value) => !!value || "Required.",
+        required: (value) => !!value || "required",
         min: (v) => v.length >= 8 || "Min 8 characters",
       },
       valid: false,
+      userPassword: "",
       firstname: "",
       lastname: "",
-      nameRules: [(v) => !!v || "Name is required"],
+      nameRules: [(v) => !!v || "required"],
       email: "",
       emailRules: [
-        (v) => !!v || "E-mail is required",
+        (v) => !!v || "required",
         (v) => /.+@.+/.test(v) || "E-mail must be valid",
       ],
     };
@@ -235,7 +246,16 @@ export default {
   padding-left: 30px;
   padding-right: 30px;
 }
+.overlay-img {
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 8%;
+}
 
+.overlay-section {
+
+}
 
 @media only screen and (max-width: 894px) {
   .card {
@@ -262,5 +282,4 @@ export default {
     border-radius: 5px;
   }
 }
-
 </style>

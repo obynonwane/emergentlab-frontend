@@ -153,7 +153,7 @@ export default {
 /* Active/current link */
 .sidebar a.active {
   background-color: #ffffff;
-  border-left: 15px solid #2bda53;
+  border-left: 20px solid #2bda53;
   color: white;
 }
 

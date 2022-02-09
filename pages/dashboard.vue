@@ -23,7 +23,7 @@
     </v-card>
 
     <div class="row">
-      <div class="col">
+      <div class="col-xs-2">
         <div class="sidebar">
           <a
             v-bind:class="{ active: isActive1 }"
@@ -47,7 +47,11 @@
         </div>
       </div>
 
-      <div class="col"></div>
+      <div class="col-xs-10  main-display">
+          <p class="">Text on the left.</p>
+          <p class="">Text on the right.</p>
+        </div>
+
     </div>
   </div>
 </template>
@@ -109,17 +113,26 @@ export default {
   overflow: auto;
 }
 
-.outer-a {
-
-}
-
 .icon-bg {
   background-color: #ffffff;
   display: block;
 }
 
+
+.main-display {
+  margin-top:10px;
+  padding-left: 150px;
+}
+
+
+
+
+
+
+
 /* Sidebar links */
 .sidebar a {
+  width:200;
   display: block;
   color: black;
   padding: 40px;
@@ -128,9 +141,8 @@ export default {
 
 /* Active/current link */
 .sidebar a.active {
-  /* background-color: #04aa6d; */
-  background-color: #FFFFFF;
-  border-left: 5px solid #2BDA53;
+  background-color: #ffffff;
+  border-left: 18px solid #2bda53;
   color: white;
 }
 
@@ -155,7 +167,7 @@ div.content {
     position: relative;
   }
   .sidebar a {
-    float: left;
+    /* float: left; */
   }
   div.content {
     margin-left: 0;
@@ -168,5 +180,11 @@ div.content {
     text-align: center;
     float: none;
   }
+
+
+.main-display {
+  margin-top:10px;
+  padding-left: 10px;
+}
 }
 </style>

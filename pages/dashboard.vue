@@ -47,11 +47,10 @@
         </div>
       </div>
 
-      <div class="col-xs-10  main-display">
-          <p class="">Text on the left.</p>
-          <p class="">Text on the right.</p>
-        </div>
-
+      <div id="textbox" class="col-xs-10 main-display">
+        <p class="alignleft">Text on the left.</p>
+        <p class="alignright">Text on the right.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -118,21 +117,21 @@ export default {
   display: block;
 }
 
-
 .main-display {
-  margin-top:10px;
+  margin-top: 50px;
   padding-left: 150px;
 }
 
-
-
-
-
-
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
 
 /* Sidebar links */
 .sidebar a {
-  width:200;
+  width: 200;
   display: block;
   color: black;
   padding: 40px;
@@ -175,16 +174,15 @@ div.content {
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .sidebar a {
     text-align: center;
     float: none;
   }
 
-
-.main-display {
-  margin-top:10px;
-  padding-left: 10px;
-}
+  .main-display {
+    margin-top: 10px;
+    padding-left: 10px;
+  }
 }
 </style>

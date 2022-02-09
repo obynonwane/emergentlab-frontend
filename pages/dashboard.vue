@@ -25,10 +25,25 @@
     <div class="row">
       <div class="col">
         <div class="sidebar">
-          <a class="active" href="#home">Home</a>
-          <a href="#news">News</a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
+          <a
+            v-bind:class="{ active: isActive1 }"
+            @click="activate1()"
+            href="#home"
+            ><v-icon>mdi-folder</v-icon></a
+          >
+          <a
+            v-bind:class="{ active: isActive2 }"
+            @click="activate2()"
+            href="#news"
+            ><v-icon>mdi-group</v-icon></a
+          >
+          <a
+            class="outer-a"
+            v-bind:class="{ active: isActive3 }"
+            @click="activate3()"
+            href="#contact"
+            ><v-icon>mdi-folder</v-icon></a
+          >
         </div>
       </div>
 
@@ -36,6 +51,38 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "IndexPage",
+  data() {
+    return {
+      isActive1: true,
+      isActive2: false,
+      isActive3: false,
+      hasError: false,
+    };
+  },
+
+  methods: {
+    activate1() {
+      this.isActive1 = !this.isActive1;
+      this.isActive2 = false;
+      this.isActive3 = false;
+    },
+    activate2() {
+      this.isActive1 = false;
+      this.isActive2 = !this.isActive2;
+      this.isActive3 = false;
+    },
+    activate3() {
+      this.isActive3 = !this.isActive3;
+      this.isActive1 = false;
+      this.isActive2 = false;
+    },
+  },
+};
+</script>
 
 <style scoped>
 .container-fluid {
@@ -51,31 +98,39 @@
   background-color: #ffffff;
 }
 
-
-
-
 /* The side navigation menu */
 .sidebar {
   margin: 0;
   padding: 0;
   width: 100px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   position: fixed;
   height: 100%;
   overflow: auto;
+}
+
+.outer-a {
+
+}
+
+.icon-bg {
+  background-color: #ffffff;
+  display: block;
 }
 
 /* Sidebar links */
 .sidebar a {
   display: block;
   color: black;
-  padding: 16px;
+  padding: 40px;
   text-decoration: none;
 }
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: #04AA6D;
+  /* background-color: #04aa6d; */
+  background-color: #FFFFFF;
+  border-left: 5px solid #2BDA53;
   color: white;
 }
 
@@ -99,8 +154,12 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */

@@ -34,7 +34,7 @@
           <a
             v-bind:class="{ active: isActive2 }"
             @click="activate2()"
-            href="#news"
+            href="#newss"
             ><v-img src="icon2.png"> </v-img></a
           >
           <a

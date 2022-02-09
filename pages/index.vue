@@ -1,9 +1,11 @@
 <template>
   <div class="container-fluid p-0">
     <div class="row no-gutters">
-      <div class="left-side-landing col-sm-6"></div>
+      <div class="left-side-landing col-xs-12 col-sm-6 col-md-6">
+        <section></section>
+      </div>
 
-      <div class="col-sm-6">
+      <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="row inner-div-right">
           <div class="col d-flex justify-content-center">
             <section class="head-text">
@@ -22,7 +24,7 @@
                 <v-form v-model="valid" ref="form">
                   <!-- <v-container> -->
                   <v-row>
-                    <v-col cols="12" md="6">
+                    <v-col cols="12" sm="12" md="6">
                       <v-text-field
                         append-icon="mdi-account"
                         v-model="firstname"
@@ -32,7 +34,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="6">
+                    <v-col cols="12" sm="12" md="6">
                       <v-text-field
                         append-icon="mdi-account"
                         v-model="lastname"
@@ -42,7 +44,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="12">
+                    <v-col cols="12" sm="12" md="12">
                       <v-text-field
                         append-icon="mdi-email"
                         v-model="email"
@@ -52,7 +54,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="12">
+                    <v-col cols="12" sm="12" md="12">
                       <v-text-field
                         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                         :rules="[rules.required, rules.emailMatch]"
@@ -85,7 +87,9 @@
         <div class="row bottom-section">
           <div class="col-sm">
             <p class="footer-test">
-              By siging up, you agree to our <span class="subtext-in">Terms</span> and <span class="subtext-in">Privacy Policy</span>
+              By siging up, you agree to our
+              <span class="subtext-in">Terms</span> and
+              <span class="subtext-in">Privacy Policy</span>
             </p>
           </div>
           <div class="col-sm">
@@ -227,8 +231,36 @@ export default {
 }
 
 .bottom-section {
-  padding-top:80px;
+  padding-top: 80px;
   padding-left: 30px;
   padding-right: 30px;
 }
+
+
+@media only screen and (max-width: 894px) {
+  .card {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 20px;
+    background: #ffffff;
+    box-shadow: 0px 20px 50px #eaeee9;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .left-side-landing {
+    display: none;
+  }
+
+  .card {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 20px;
+    background: #ffffff;
+    box-shadow: 0px 20px 50px #eaeee9;
+    border-radius: 5px;
+  }
+}
+
 </style>

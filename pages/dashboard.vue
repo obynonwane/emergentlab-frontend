@@ -48,20 +48,18 @@
       </div>
 
       <div class="col-xs-10 main-display">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <p>Employees</p>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: #000000">
-            <button type="button" class="btn btn-lg btn-success btn-inner">
+        <!-- <section style="display:flex">
+          <span>Employees</span>
+          <span style="justify-content: flex-end;">
+            <button type="button" class="btn btn-lg btn-success btn-inner" >
               <nuxt-link
                 to="/dashboard"
                 style="color: #ffffff; text-decoration: none"
                 >Continue
               </nuxt-link>
             </button>
-          </div>
-        </div>
+          </span>
+        </section> -->
       </div>
     </div>
   </div>
@@ -134,13 +132,6 @@ export default {
   padding-left: 150px;
 }
 
-.alignleft {
-  float: left;
-}
-.alignright {
-  float: right;
-}
-
 /* Sidebar links */
 .sidebar a {
   width: 100px;
@@ -176,9 +167,6 @@ div.content {
     width: 100%;
     height: auto;
     position: relative;
-  }
-  .sidebar a {
-    /* float: left; */
   }
   div.content {
     margin-left: 0;

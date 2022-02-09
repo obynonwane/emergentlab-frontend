@@ -84,15 +84,15 @@
             </div>
           </div>
         </div>
-        <div class="row bottom-section">
-          <div class="col-sm">
+        <div class="row bottom-section ">
+          <div class="col-xs-12 col-sm-6 d-flex justify-content-center">
             <p class="footer-test">
               By siging up, you agree to our
               <span class="subtext-in">Terms</span> and
               <span class="subtext-in">Privacy Policy</span>
             </p>
           </div>
-          <div class="col-sm">
+          <div class="col-xs-12 col-sm-6 d-flex justify-content-center">
             <p class="footer-copyright">
               © 2019 Tinylabs. All rights reserved.
             </p>

@@ -29,27 +29,39 @@
             v-bind:class="{ active: isActive1 }"
             @click="activate1()"
             href="#home"
-            ><v-img src="icon1.png"> </v-img></a
-          >
+            ><v-img src="iconted.png"> </v-img
+          ></a>
           <a
             v-bind:class="{ active: isActive2 }"
             @click="activate2()"
             href="#newss"
-            ><v-img src="icon2.png"> </v-img></a
-          >
+            ><v-img src="icon2.png"> </v-img
+          ></a>
           <a
             class="outer-a"
             v-bind:class="{ active: isActive3 }"
             @click="activate3()"
             href="#contact"
-            ><v-img src="icon3.png"> </v-img></a
-          >
+            ><v-img src="icon3.png"> </v-img
+          ></a>
         </div>
       </div>
 
       <div class="col-xs-10 main-display">
-        <p class="alignleft">Text on the left.</p>
-        <p class="alignright">Text on the right.</p>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <p>Employees</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: #000000">
+            <button type="button" class="btn btn-lg btn-success btn-inner">
+              <nuxt-link
+                to="/dashboard"
+                style="color: #ffffff; text-decoration: none"
+                >Continue
+              </nuxt-link>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

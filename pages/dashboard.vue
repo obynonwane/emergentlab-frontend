@@ -48,7 +48,6 @@
       </div>
 
       <div class="col-xs-10 main-display">
-        {{employess}}
         <!-- <section style="display:flex">
           <span>Employees</span>
           <span style="justify-content: flex-end;">
@@ -61,6 +60,41 @@
             </button>
           </span>
         </section> -->
+        <b-row class="mb-3" v-if="employess">
+          <b-col md="3">
+            <b-form-input
+              v-model="filter"
+              type="search"
+              id="filterInput"
+              placeholder="Type to Search"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <b-table
+              striped
+              hover
+              outlined
+              :items="employess"
+              :fields="fields"
+              :filter="filter"
+              :current-page="currentPage"
+              :per-page="perPage"
+            >
+            <template v-slot:cell(actions)="data">
+              <!-- <v-icon @click="deleteItem(data.item.id)">mdi-delete</v-icon> -->
+            <b-button variant="light" @click="deleteItem(data.item.id)"><v-icon @click="deleteItem(data.item.id)">mdi-delete</v-icon></b-button>
+          </template>
+            </b-table>
+            <b-pagination
+              v-model="currentPage"
+              :total-rows="rows"
+              :per-page="perPage"
+              aria-controls="my-table"
+            ></b-pagination>
+          </b-col>
+        </b-row>
       </div>
     </div>
   </div>
@@ -71,11 +105,16 @@ export default {
   name: "IndexPage",
   data() {
     return {
-      employess:{},
+      employess: [],
       isActive1: true,
       isActive2: false,
       isActive3: false,
       hasError: false,
+
+      filter: "",
+      perPage: 2,
+      currentPage: 1,
+      fields: ["id", "firstname", "lastname", "email", "password", "createdAt", "updatedAt", "actions"],
     };
   },
 
@@ -95,11 +134,31 @@ export default {
       this.isActive1 = false;
       this.isActive2 = false;
     },
+
+    deleteItem(id) {
+      // const index = this.employess.indexOf((x) => x.id === id);
+      // this.employess.splice(index, 1);
+
+      this.$axios
+      .$delete(`employee/${id}`)
+      .then((res) => {
+        this.employess = res.data;
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    },
   },
 
+  computed: {
+    rows() {
+      return this.employess.length;
+    },
+  },
   mounted() {
     this.$axios
-      .$get('employee')
+      .$get("employee")
       .then((res) => {
         this.employess = res.data;
         console.log(res.data);

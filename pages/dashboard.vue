@@ -112,9 +112,9 @@ export default {
       hasError: false,
 
       filter: "",
-      perPage: 2,
+      perPage: 5,
       currentPage: 1,
-      fields: ["id", "firstname", "lastname", "email", "password", "createdAt", "updatedAt", "actions"],
+      fields: ["id", "firstname", "lastname", "email", "phone", "role", "actions"],
     };
   },
 
@@ -136,14 +136,12 @@ export default {
     },
 
     deleteItem(id) {
-      // const index = this.employess.indexOf((x) => x.id === id);
-      // this.employess.splice(index, 1);
-
       this.$axios
       .$delete(`employee/${id}`)
       .then((res) => {
         this.employess = res.data;
         console.log(res.data);
+        this.$router.go()
       })
       .catch((err) => {
         console.log(err);

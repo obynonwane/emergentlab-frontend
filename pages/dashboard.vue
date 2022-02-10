@@ -48,6 +48,7 @@
       </div>
 
       <div class="col-xs-10 main-display">
+        {{employess}}
         <!-- <section style="display:flex">
           <span>Employees</span>
           <span style="justify-content: flex-end;">
@@ -70,6 +71,7 @@ export default {
   name: "IndexPage",
   data() {
     return {
+      employess:{},
       isActive1: true,
       isActive2: false,
       isActive3: false,
@@ -93,6 +95,18 @@ export default {
       this.isActive1 = false;
       this.isActive2 = false;
     },
+  },
+
+  mounted() {
+    this.$axios
+      .$get('employee')
+      .then((res) => {
+        this.employess = res.data;
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>

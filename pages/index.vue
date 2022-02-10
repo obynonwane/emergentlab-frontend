@@ -20,7 +20,14 @@
             <section class="head-text">
               <p class="signup-header">Create your free account</p>
               <p class="signup-subtext">
-                Already registered? <span class="subtext-in"> <nuxt-link to="/dashboard" style="color:#2bda53;  text-decoration: none;">Sign in</nuxt-link></span>
+                Already registered?
+                <span class="subtext-in">
+                  <nuxt-link
+                    to="/dashboard"
+                    style="color: #2bda53; text-decoration: none"
+                    >Sign in</nuxt-link
+                  ></span
+                >
               </p>
             </section>
           </div>
@@ -83,9 +90,12 @@
                         type="button"
                         class="btn btn-lg btn-success btn-inner"
                       >
-                        <nuxt-link to="/dashboard" style="color:#FFFFFF;  text-decoration: none;">Continue </nuxt-link>
+                        <nuxt-link
+                          to="/dashboard"
+                          style="color: #ffffff; text-decoration: none"
+                          >Continue
+                        </nuxt-link>
                       </button>
-
                     </section>
                   </v-row>
                   <!-- </v-container> -->
@@ -247,14 +257,13 @@ export default {
   padding-right: 30px;
 }
 .overlay-img {
- display: block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 8%;
 }
 
 .overlay-section {
-
 }
 
 @media only screen and (max-width: 894px) {

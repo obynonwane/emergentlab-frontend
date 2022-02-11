@@ -47,20 +47,16 @@
         </div>
       </div>
 
-      <div class="col-xs-10 main-display">
-        <!-- <section style="display:flex">
-          <span>Employees</span>
-          <span style="justify-content: flex-end;">
-            <button type="button" class="btn btn-lg btn-success btn-inner" >
-              <nuxt-link
-                to="/dashboard"
-                style="color: #ffffff; text-decoration: none"
-                >Continue
-              </nuxt-link>
+      <div class="col-sm main-display">
+        <b-row>
+          <b-col md="2">
+            <b-form-select v-model="selected" :options="selctoptions"></b-form-select>
+          </b-col>
+          <b-col md="1">
+            <button type="button" style="color:white" class="btn btn-md btn-success btn-inner">
+              change
             </button>
-          </span>
-        </section> -->
-        <b-row class="mb-3" v-if="employess">
+          </b-col>
           <b-col md="3">
             <b-form-input
               v-model="filter"
@@ -69,11 +65,28 @@
               placeholder="Type to Search"
             ></b-form-input>
           </b-col>
+
+          <b-col>
+            <section
+              class=""
+              style="
+                margin-left:350px
+              "
+            >
+              <b-pagination
+                v-model="currentPage"
+                :total-rows="rows"
+                :per-page="perPage"
+                aria-controls="my-table"
+              ></b-pagination>
+            </section>
+          </b-col>
         </b-row>
         <b-row>
           <b-col>
             <b-table
               striped
+              none
               hover
               outlined
               :items="employess"
@@ -82,17 +95,14 @@
               :current-page="currentPage"
               :per-page="perPage"
             >
-            <template v-slot:cell(actions)="data">
-              <!-- <v-icon @click="deleteItem(data.item.id)">mdi-delete</v-icon> -->
-            <b-button variant="light" @click="deleteItem(data.item.id)"><v-icon @click="deleteItem(data.item.id)">mdi-delete</v-icon></b-button>
-          </template>
+              <template v-slot:cell(actions)="data">
+                <b-button variant="light" @click="deleteItem(data.item.id)"
+                  ><v-icon @click="deleteItem(data.item.id)"
+                    >mdi-delete</v-icon
+                  ></b-button
+                >
+              </template>
             </b-table>
-            <b-pagination
-              v-model="currentPage"
-              :total-rows="rows"
-              :per-page="perPage"
-              aria-controls="my-table"
-            ></b-pagination>
           </b-col>
         </b-row>
       </div>
@@ -105,6 +115,7 @@ export default {
   name: "IndexPage",
   data() {
     return {
+      selctoptions:[{value:1, text: 'ADMIN'}],
       employess: [],
       isActive1: true,
       isActive2: false,
@@ -114,7 +125,15 @@ export default {
       filter: "",
       perPage: 5,
       currentPage: 1,
-      fields: ["id", "firstname", "lastname", "email", "phone", "role", "actions"],
+      fields: [
+        "id",
+        "firstname",
+        "lastname",
+        "email",
+        "phone",
+        "role",
+        "actions",
+      ],
     };
   },
 
@@ -137,15 +156,15 @@ export default {
 
     deleteItem(id) {
       this.$axios
-      .$delete(`employee/${id}`)
-      .then((res) => {
-        this.employess = res.data;
-        console.log(res.data);
-        this.$router.go()
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .$delete(`employee/${id}`)
+        .then((res) => {
+          this.employess = res.data;
+          console.log(res.data);
+          this.$router.go();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 
@@ -201,6 +220,7 @@ export default {
 .main-display {
   margin-top: 50px;
   padding-left: 150px;
+  padding-right: 100px;
 }
 
 /* Sidebar links */

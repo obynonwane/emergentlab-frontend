@@ -236,10 +236,12 @@
 
               <span>
                 <b-pagination
+                  pills
                   v-model="currentPage"
                   :total-rows="rows"
                   :per-page="perPage"
                   aria-controls="my-table"
+                  page-class="customPagination"
                 ></b-pagination>
               </span>
             </div>
@@ -249,8 +251,8 @@
         <b-row>
           <b-col>
             <b-table
-              striped
               none
+              striped
               hover
               outlined
               :items="employess"
@@ -306,13 +308,13 @@ export default {
       perPage: 5,
       currentPage: 1,
       fields: [
-        "id",
-        "firstname",
-        "lastname",
-        "email",
-        "phone",
-        "role",
-        "actions",
+        { key: "id", label: "ID" },
+        { key: "firstname", label: "FIRSTNAME" },
+        { key: "lastname", label: "LASTNAME" },
+        { key: "email", label: "EMAIL" },
+        { key: "phone", label: "PHONE" },
+        { key: "role", label: "ROLE" },
+        { key: "actions", label: "ACTIONS" },
       ],
     };
   },
@@ -397,9 +399,9 @@ export default {
       this.$root.$emit("bv::toggle::modal", "modal-1", "#btnToggle");
     },
 
-    toggleModalUpdate(){
+    toggleModalUpdate() {
       this.$root.$emit("bv::toggle::modal", "modal-2", "#btnToggle");
-    }
+    },
   },
 
   computed: {
@@ -529,6 +531,16 @@ div.content {
 
   color: #013c61;
 }
+
+.customPagination >  {
+  color: black;
+}
+
+.customPagination.page-item.active .page-link {
+  background-color: red;
+  border-color: red;
+}
+
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {

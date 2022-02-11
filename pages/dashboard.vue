@@ -51,7 +51,10 @@
         <div class="row">
           <div class="col">
             <div class="card">
-              <div class="card-body" style="display: flex; justify-content: space-between;">
+              <div
+                class="card-body"
+                style="display: flex; justify-content: space-between"
+              >
                 <p class="comp-name">Josh Bakery Ventures.</p>
                 <p class="comp-address">62, Bode Thomas, Surulere, Lagos</p>
               </div>
@@ -265,24 +268,32 @@ div.content {
 }
 
 .comp-name {
-float:left;
-  /* margin-right:400px; */
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 36px;
+  line-height: 15px;
+  /* or 42% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.9px;
 
   color: #013c61;
 }
 
 .comp-address {
-  float:right;
-  text-align: right;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
-  color: #013c61;
+  line-height: 15px;
+  /* or 68% */
+
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: -0.55px;
 }
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {

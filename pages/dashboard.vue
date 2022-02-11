@@ -423,7 +423,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .container-fluid {
   width: 100vw;
   min-height: 100vh;
@@ -537,8 +537,8 @@ div.content {
 }
 
 .customPagination.page-item.active .page-link {
-  background-color: red;
-  border-color: red;
+  background-color: #2bda53;
+  border-color: #2bda53;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */

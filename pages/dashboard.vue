@@ -217,12 +217,12 @@
                 <p style="margin-right: 10px">
                   <button
                     type="button"
+                    class="btn btn-md  btn-inner"
                     style="
                       color: white;
                       background-color: #2bda53;
-                      border-color: none;
                     "
-                    class="btn btn-md btn-success btn-inner"
+
                   >
                     change
                   </button>

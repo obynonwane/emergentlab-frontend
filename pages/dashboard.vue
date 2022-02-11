@@ -135,7 +135,7 @@
                   <div class="d-block head-sec-emp">Update Employee</div>
                   <br />
                   <br />
-                  <form ref="form" @submit.stop.prevent="handleSubmitted">
+                  <form ref="form" @submit.stop.prevent="handleSubmited">
                     <b-form-group label="Firstname" label-for="firstname-input">
                       <b-form-input
                         id="firstname-input"
@@ -167,22 +167,14 @@
                         required
                       ></b-form-input>
                     </b-form-group>
-
-                    <b-form-group label="Password" label-for="password-input">
-                      <b-form-input
-                        id="password-input"
-                        v-model="formData.password"
-                        required
-                      ></b-form-input>
-                    </b-form-group>
                   </form>
                   <div class="row">
                     <div class="col">
                       <b-button
-                        @click="submit"
+                        @click="updateEmployee"
                         class="btn btn-lg btn-success btn-inner"
                         style="color: #ffffff"
-                        >Submit</b-button
+                        >Update Employee</b-button
                       >
                       <b-button
                         @click="toggleModal"
@@ -294,6 +286,8 @@ export default {
         password: "",
         role: "ADMIN",
       },
+      selected: '',
+      idForUpdate: null,
       selctoptions: [{ value: 1, text: "ADMIN" }],
       employess: [],
       isActive1: true,
@@ -347,7 +341,33 @@ export default {
     },
 
     fetchUpdateItem(id){
+      let employee = JSON.parse(JSON.stringify(this.employess));
+      let data = this;
+      // console.log(employee);
+      for(let i = 0; i<employee.length; i++){
+        if(employee[i].id == id){
+          data = employee[i]
+        }
+      }
 
+      this.formData.firstname = data.firstname;
+      this.formData.lastname = data.lastname;
+      this.formData.email = data.email;
+      this.formData.phone = data.phone;
+      this.idForUpdate = id;
+    },
+
+    updateEmployee(){
+      this.$axios
+        .$put(`employee/${this.idForUpdate}`, this.formData)
+        .then((res) => {
+          this.employess = res.data;
+          console.log(res.data);
+          this.$router.go();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
 
     showModal() {

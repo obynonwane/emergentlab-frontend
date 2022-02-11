@@ -238,6 +238,7 @@ export default {
         email:'',
         phone:'',
         password:'',
+        role:'ADMIN'
       },
       selctoptions: [{ value: 1, text: "ADMIN" }],
       employess: [],
@@ -295,8 +296,17 @@ export default {
       this.$root.$emit("bv::show::modal", "modal-1", "#btnShow");
     },
     submit() {
-      alert("Closing");
       this.$root.$emit("bv::hide::modal", "modal-1", "#btnShow");
+      this.$axios
+        .$post(`employee`, this.formData)
+        .then((res) => {
+          this.employess = res.data;
+          console.log(res.data);
+          this.$router.go();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     toggleModal() {
       this.$root.$emit("bv::toggle::modal", "modal-1", "#btnToggle");

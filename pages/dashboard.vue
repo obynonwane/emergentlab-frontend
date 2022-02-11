@@ -129,6 +129,70 @@
                     </div>
                   </div>
                 </b-modal>
+
+
+                  <b-modal id="modal-2" :ok-disabled="true" hide-footer>
+                  <div class="d-block head-sec-emp">Update Employee</div>
+                  <br />
+                  <br />
+                  <form ref="form" @submit.stop.prevent="handleSubmitted">
+                    <b-form-group label="Firstname" label-for="firstname-input">
+                      <b-form-input
+                        id="firstname-input"
+                        v-model="formData.firstname"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+
+                    <b-form-group label="Lastname" label-for="lastname-input">
+                      <b-form-input
+                        id="lastname-input"
+                        v-model="formData.lastname"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+
+                    <b-form-group label="Email" label-for="email-input">
+                      <b-form-input
+                        id="email-input"
+                        v-model="formData.email"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+
+                    <b-form-group label="Phone" label-for="phone-input">
+                      <b-form-input
+                        id="phone-input"
+                        v-model="formData.phone"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+
+                    <b-form-group label="Password" label-for="password-input">
+                      <b-form-input
+                        id="password-input"
+                        v-model="formData.password"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+                  </form>
+                  <div class="row">
+                    <div class="col">
+                      <b-button
+                        @click="submit"
+                        class="btn btn-lg btn-success btn-inner"
+                        style="color: #ffffff"
+                        >Submit</b-button
+                      >
+                      <b-button
+                        @click="toggleModal"
+                        class="btn btn-lg btn-info btn-inner"
+                        style="color: #ffffff"
+                        >Close</b-button
+                      >
+                    </div>
+                  </div>
+                </b-modal>
               </p>
             </div>
           </div>
@@ -203,8 +267,8 @@
                     >mdi-delete</v-icon
                   >
                   </b-button>
-                  <b-button variant="light" @click="deleteItem(data.item.id)"
-                  ><v-icon @click="deleteItem(data.item.id)"
+                  <b-button  v-b-modal.modal-2 variant="light" @click="fetchUpdateItem(data.item.id)"
+                  ><v-icon @click="fetchUpdateItem(data.item.id)"
                     >mdi-pen</v-icon
                   >
                   </b-button>
@@ -280,6 +344,10 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+
+    fetchUpdateItem(id){
+
     },
 
     showModal() {

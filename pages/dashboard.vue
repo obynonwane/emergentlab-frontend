@@ -48,12 +48,29 @@
       </div>
 
       <div class="col-sm main-display">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body" style="display: flex; justify-content: space-between;">
+                <p class="comp-name">Josh Bakery Ventures.</p>
+                <p class="comp-address">62, Bode Thomas, Surulere, Lagos</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <b-row>
           <b-col md="2">
-            <b-form-select v-model="selected" :options="selctoptions"></b-form-select>
+            <b-form-select
+              v-model="selected"
+              :options="selctoptions"
+            ></b-form-select>
           </b-col>
           <b-col md="1">
-            <button type="button" style="color:white" class="btn btn-md btn-success btn-inner">
+            <button
+              type="button"
+              style="color: white"
+              class="btn btn-md btn-success btn-inner"
+            >
               change
             </button>
           </b-col>
@@ -67,12 +84,7 @@
           </b-col>
 
           <b-col>
-            <section
-              class=""
-              style="
-                margin-left:350px
-              "
-            >
+            <section class="" style="margin-left: 350px">
               <b-pagination
                 v-model="currentPage"
                 :total-rows="rows"
@@ -115,7 +127,7 @@ export default {
   name: "IndexPage",
   data() {
     return {
-      selctoptions:[{value:1, text: 'ADMIN'}],
+      selctoptions: [{ value: 1, text: "ADMIN" }],
       employess: [],
       isActive1: true,
       isActive2: false,
@@ -252,6 +264,26 @@ div.content {
   height: 1000px;
 }
 
+.comp-name {
+float:left;
+  /* margin-right:400px; */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+
+  color: #013c61;
+}
+
+.comp-address {
+  float:right;
+  text-align: right;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  color: #013c61;
+}
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {

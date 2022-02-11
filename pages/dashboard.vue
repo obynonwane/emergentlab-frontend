@@ -61,8 +61,9 @@
                   @click="showModal"
                   ref="btnShow"
                   type="button"
-                  style="color: white"
+                  style="color: white; background-color:#2bda53"
                   class="btn btn-lg btn-success btn-inner"
+
                 >
                   Add New
                 </button>
@@ -217,7 +218,7 @@
                 <p style="margin-right: 10px">
                   <button
                     type="button"
-                    style="color: white"
+                    style="color: white; background-color:#2bda53; border-color:none"
                     class="btn btn-md btn-success btn-inner"
                   >
                     change

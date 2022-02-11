@@ -57,7 +57,7 @@
               change
             </button>
           </b-col>
-          <b-col md="3">
+          <b-col md="2">
             <b-form-input
               v-model="filter"
               type="search"

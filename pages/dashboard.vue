@@ -309,13 +309,14 @@ export default {
       perPage: 5,
       currentPage: 1,
       fields: [
-        { key: "id", label: "ID" },
-        { key: "firstname", label: "FIRSTNAME" },
-        { key: "lastname", label: "LASTNAME" },
-        { key: "email", label: "EMAIL" },
-        { key: "phone", label: "PHONE" },
-        { key: "role", label: "ROLE" },
-        { key: "actions", label: "ACTIONS" },
+        { key: "id", label: "ID", variant: 'light' },
+        { key: "firstname", label: "FIRSTNAME", variant: 'light' },
+        { key: "lastname", label: "LASTNAME",variant: 'light' },
+        { key: "email", label: "EMAIL",variant: 'light' },
+        { key: "phone", label: "PHONE", variant: 'light' },
+        { key: "role", label: "ROLE", variant: 'light' },
+        { key: "actions", label: "ACTIONS",  variant: 'light' },
+
       ],
     };
   },

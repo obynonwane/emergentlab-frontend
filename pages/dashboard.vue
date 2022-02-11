@@ -69,13 +69,10 @@
 
                 <b-modal id="modal-1" :ok-disabled="true" hide-footer>
                   <div class="d-block head-sec-emp">Add New Employee</div>
-                  <br>
-                  <br>
+                  <br />
+                  <br />
                   <form ref="form" @submit.stop.prevent="handleSubmit">
-                    <b-form-group
-                      label="Firstname"
-                      label-for="firstname-input"
-                    >
+                    <b-form-group label="Firstname" label-for="firstname-input">
                       <b-form-input
                         id="firstname-input"
                         v-model="formData.firstname"
@@ -83,10 +80,7 @@
                       ></b-form-input>
                     </b-form-group>
 
-                     <b-form-group
-                      label="Lastname"
-                      label-for="lastname-input"
-                    >
+                    <b-form-group label="Lastname" label-for="lastname-input">
                       <b-form-input
                         id="lastname-input"
                         v-model="formData.lastname"
@@ -94,10 +88,7 @@
                       ></b-form-input>
                     </b-form-group>
 
-                     <b-form-group
-                      label="Email"
-                      label-for="email-input"
-                    >
+                    <b-form-group label="Email" label-for="email-input">
                       <b-form-input
                         id="email-input"
                         v-model="formData.email"
@@ -105,10 +96,7 @@
                       ></b-form-input>
                     </b-form-group>
 
-                     <b-form-group
-                      label="Phone"
-                      label-for="phone-input"
-                    >
+                    <b-form-group label="Phone" label-for="phone-input">
                       <b-form-input
                         id="phone-input"
                         v-model="formData.phone"
@@ -116,10 +104,7 @@
                       ></b-form-input>
                     </b-form-group>
 
-                     <b-form-group
-                      label="Password"
-                      label-for="password-input"
-                    >
+                    <b-form-group label="Password" label-for="password-input">
                       <b-form-input
                         id="password-input"
                         v-model="formData.password"
@@ -216,8 +201,13 @@
                 <b-button variant="light" @click="deleteItem(data.item.id)"
                   ><v-icon @click="deleteItem(data.item.id)"
                     >mdi-delete</v-icon
-                  ></b-button
-                >
+                  >
+                  </b-button>
+                  <b-button variant="light" @click="deleteItem(data.item.id)"
+                  ><v-icon @click="deleteItem(data.item.id)"
+                    >mdi-pen</v-icon
+                  >
+                  </b-button>
               </template>
             </b-table>
           </b-col>
@@ -232,13 +222,13 @@ export default {
   name: "IndexPage",
   data() {
     return {
-      formData:{
-        firstname:'',
-        lastname:'',
-        email:'',
-        phone:'',
-        password:'',
-        role:'ADMIN'
+      formData: {
+        firstname: "",
+        lastname: "",
+        email: "",
+        phone: "",
+        password: "",
+        role: "ADMIN",
       },
       selctoptions: [{ value: 1, text: "ADMIN" }],
       employess: [],

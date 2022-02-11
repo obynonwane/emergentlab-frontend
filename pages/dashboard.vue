@@ -208,13 +208,13 @@
           <div class="col">
             <div style="display: flex; justify-content: space-between">
               <span style="display: flex">
-                <p>
+                <p style="margin-right: 10px">
                   <b-form-select
                     v-model="selected"
                     :options="selctoptions"
                   ></b-form-select>
                 </p>
-                <p>
+                <p style="margin-right: 10px">
                   <button
                     type="button"
                     style="color: white"
@@ -229,17 +229,18 @@
                     type="search"
                     id="filterInput"
                     placeholder="Type to Search"
-                  ></b-form-input>
+                  >
+                  </b-form-input>
                 </p>
               </span>
 
               <span>
                 <b-pagination
-                v-model="currentPage"
-                :total-rows="rows"
-                :per-page="perPage"
-                aria-controls="my-table"
-              ></b-pagination>
+                  v-model="currentPage"
+                  :total-rows="rows"
+                  :per-page="perPage"
+                  aria-controls="my-table"
+                ></b-pagination>
               </span>
             </div>
           </div>

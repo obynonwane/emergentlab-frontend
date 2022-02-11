@@ -130,8 +130,7 @@
                   </div>
                 </b-modal>
 
-
-                  <b-modal id="modal-2" :ok-disabled="true" hide-footer>
+                <b-modal id="modal-2" :ok-disabled="true" hide-footer>
                   <div class="d-block head-sec-emp">Update Employee</div>
                   <br />
                   <br />
@@ -191,7 +190,7 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="card">
+            <div class="card" style="background: #ffffff; border-radius: 5px">
               <div
                 class="card-body"
                 style="display: flex; justify-content: space-between"
@@ -204,42 +203,48 @@
         </div>
 
         <br /><br />
-        <b-row>
-          <b-col md="2">
-            <b-form-select
-              v-model="selected"
-              :options="selctoptions"
-            ></b-form-select>
-          </b-col>
-          <b-col md="1">
-            <button
-              type="button"
-              style="color: white"
-              class="btn btn-md btn-success btn-inner"
-            >
-              change
-            </button>
-          </b-col>
-          <b-col md="2">
-            <b-form-input
-              v-model="filter"
-              type="search"
-              id="filterInput"
-              placeholder="Type to Search"
-            ></b-form-input>
-          </b-col>
 
-          <b-col>
-            <section class="" style="margin-left: 350px">
-              <b-pagination
+        <div class="row">
+          <div class="col">
+            <div style="display: flex; justify-content: space-between">
+              <span style="display: flex">
+                <p>
+                  <b-form-select
+                    v-model="selected"
+                    :options="selctoptions"
+                  ></b-form-select>
+                </p>
+                <p>
+                  <button
+                    type="button"
+                    style="color: white"
+                    class="btn btn-md btn-success btn-inner"
+                  >
+                    change
+                  </button>
+                </p>
+                <p>
+                  <b-form-input
+                    v-model="filter"
+                    type="search"
+                    id="filterInput"
+                    placeholder="Type to Search"
+                  ></b-form-input>
+                </p>
+              </span>
+
+              <span>
+                <b-pagination
                 v-model="currentPage"
                 :total-rows="rows"
                 :per-page="perPage"
                 aria-controls="my-table"
               ></b-pagination>
-            </section>
-          </b-col>
-        </b-row>
+              </span>
+            </div>
+          </div>
+        </div>
+
         <b-row>
           <b-col>
             <b-table
@@ -255,15 +260,16 @@
             >
               <template v-slot:cell(actions)="data">
                 <b-button variant="light" @click="deleteItem(data.item.id)"
-                  ><v-icon @click="deleteItem(data.item.id)"
-                    >mdi-delete</v-icon
-                  >
-                  </b-button>
-                  <b-button  v-b-modal.modal-2 variant="light" @click="fetchUpdateItem(data.item.id)"
+                  ><v-icon @click="deleteItem(data.item.id)">mdi-delete</v-icon>
+                </b-button>
+                <b-button
+                  v-b-modal.modal-2
+                  variant="light"
+                  @click="fetchUpdateItem(data.item.id)"
                   ><v-icon @click="fetchUpdateItem(data.item.id)"
                     >mdi-pen</v-icon
                   >
-                  </b-button>
+                </b-button>
               </template>
             </b-table>
           </b-col>
@@ -286,7 +292,7 @@ export default {
         password: "",
         role: "ADMIN",
       },
-      selected: '',
+      selected: "",
       idForUpdate: null,
       selctoptions: [{ value: 1, text: "ADMIN" }],
       employess: [],
@@ -340,13 +346,13 @@ export default {
         });
     },
 
-    fetchUpdateItem(id){
+    fetchUpdateItem(id) {
       let employee = JSON.parse(JSON.stringify(this.employess));
       let data = this;
       // console.log(employee);
-      for(let i = 0; i<employee.length; i++){
-        if(employee[i].id == id){
-          data = employee[i]
+      for (let i = 0; i < employee.length; i++) {
+        if (employee[i].id == id) {
+          data = employee[i];
         }
       }
 
@@ -357,7 +363,7 @@ export default {
       this.idForUpdate = id;
     },
 
-    updateEmployee(){
+    updateEmployee() {
       this.$axios
         .$put(`employee/${this.idForUpdate}`, this.formData)
         .then((res) => {

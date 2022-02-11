@@ -54,17 +54,96 @@
               class="head-section"
               style="display: flex; justify-content: space-between"
             >
-              <p class="head-sec-emp">
-                Employees
-              </p>
+              <p class="head-sec-emp">Employees</p>
               <p>
                 <button
+                  v-b-modal.modal-1
+                  @click="showModal"
+                  ref="btnShow"
                   type="button"
                   style="color: white"
                   class="btn btn-lg btn-success btn-inner"
                 >
                   Add New
                 </button>
+
+                <b-modal id="modal-1" :ok-disabled="true" hide-footer>
+                  <div class="d-block head-sec-emp">Add New Employee</div>
+                  <br>
+                  <br>
+                  <form ref="form" @submit.stop.prevent="handleSubmit">
+                    <b-form-group
+                      label="Firstname"
+                      label-for="firstname-input"
+                    >
+                      <b-form-input
+                        id="firstname-input"
+                        v-model="formData.firstname"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+
+                     <b-form-group
+                      label="Lastname"
+                      label-for="lastname-input"
+                    >
+                      <b-form-input
+                        id="lastname-input"
+                        v-model="formData.lastname"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+
+                     <b-form-group
+                      label="Email"
+                      label-for="email-input"
+                    >
+                      <b-form-input
+                        id="email-input"
+                        v-model="formData.email"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+
+                     <b-form-group
+                      label="Phone"
+                      label-for="phone-input"
+                    >
+                      <b-form-input
+                        id="phone-input"
+                        v-model="formData.phone"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+
+                     <b-form-group
+                      label="Password"
+                      label-for="password-input"
+                    >
+                      <b-form-input
+                        id="password-input"
+                        v-model="formData.password"
+                        required
+                      ></b-form-input>
+                    </b-form-group>
+                  </form>
+                  <div class="row">
+                    <div class="col">
+                      <b-button
+                        @click="submit"
+                        class="btn btn-lg btn-success btn-inner"
+                        style="color: #ffffff"
+                        >Submit</b-button
+                      >
+                      <b-button
+                        @click="toggleModal"
+                        class="btn btn-lg btn-info btn-inner"
+                        style="color: #ffffff"
+                        >Close</b-button
+                      >
+                    </div>
+                  </div>
+                </b-modal>
               </p>
             </div>
           </div>
@@ -153,6 +232,13 @@ export default {
   name: "IndexPage",
   data() {
     return {
+      formData:{
+        firstname:'',
+        lastname:'',
+        email:'',
+        phone:'',
+        password:'',
+      },
       selctoptions: [{ value: 1, text: "ADMIN" }],
       employess: [],
       isActive1: true,
@@ -203,6 +289,17 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+
+    showModal() {
+      this.$root.$emit("bv::show::modal", "modal-1", "#btnShow");
+    },
+    submit() {
+      alert("Closing");
+      this.$root.$emit("bv::hide::modal", "modal-1", "#btnShow");
+    },
+    toggleModal() {
+      this.$root.$emit("bv::toggle::modal", "modal-1", "#btnToggle");
     },
   },
 
@@ -321,17 +418,17 @@ div.content {
 
 .head-sec-emp {
   font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 26px;
-line-height: 15px;
-/* or 58% */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 15px;
+  /* or 58% */
 
-display: flex;
-align-items: center;
-letter-spacing: -0.65px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.65px;
 
-color: #013C61;
+  color: #013c61;
 }
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {

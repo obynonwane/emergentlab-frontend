@@ -50,6 +50,27 @@
       <div class="col-sm main-display">
         <div class="row">
           <div class="col">
+            <div
+              class="head-section"
+              style="display: flex; justify-content: space-between"
+            >
+              <p class="head-sec-emp">
+                Employees
+              </p>
+              <p>
+                <button
+                  type="button"
+                  style="color: white"
+                  class="btn btn-lg btn-success btn-inner"
+                >
+                  Add New
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
             <div class="card">
               <div
                 class="card-body"
@@ -62,7 +83,7 @@
           </div>
         </div>
 
-        <br><br>
+        <br /><br />
         <b-row>
           <b-col md="2">
             <b-form-select
@@ -296,6 +317,21 @@ div.content {
   align-items: center;
   text-align: right;
   letter-spacing: -0.55px;
+}
+
+.head-sec-emp {
+  font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 26px;
+line-height: 15px;
+/* or 58% */
+
+display: flex;
+align-items: center;
+letter-spacing: -0.65px;
+
+color: #013C61;
 }
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {

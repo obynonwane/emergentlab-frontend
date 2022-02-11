@@ -176,7 +176,7 @@
                         >Update Employee</b-button
                       >
                       <b-button
-                        @click="toggleModal"
+                        @click="toggleModalUpdate"
                         class="btn btn-lg btn-info btn-inner"
                         style="color: #ffffff"
                         >Close</b-button
@@ -396,6 +396,10 @@ export default {
     toggleModal() {
       this.$root.$emit("bv::toggle::modal", "modal-1", "#btnToggle");
     },
+
+    toggleModalUpdate(){
+      this.$root.$emit("bv::toggle::modal", "modal-2", "#btnToggle");
+    }
   },
 
   computed: {

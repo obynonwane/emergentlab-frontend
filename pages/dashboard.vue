@@ -217,12 +217,8 @@
                 <p style="margin-right: 10px">
                   <button
                     type="button"
-                    class="btn btn-md  btn-inner"
-                    style="
-                      color: white;
-                      background-color: #2bda53;
-                    "
-
+                    style="color: white; background-color: #2bda53"
+                    class="btn btn-md btn-success btn-inner"
                   >
                     change
                   </button>
@@ -548,7 +544,6 @@ div.content {
 .customPagination > {
   color: black;
 }
-
 
 .customPagination.page-item.active .page-link {
   background-color: #2bda53;

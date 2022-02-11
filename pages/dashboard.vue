@@ -61,9 +61,8 @@
                   @click="showModal"
                   ref="btnShow"
                   type="button"
-                  style="color: white; background-color:#2bda53"
+                  style="color: white; background-color: #2bda53"
                   class="btn btn-lg btn-success btn-inner"
-
                 >
                   Add New
                 </button>
@@ -218,7 +217,11 @@
                 <p style="margin-right: 10px">
                   <button
                     type="button"
-                    style="color: white; background-color:#2bda53; border-color:none"
+                    style="
+                      color: white;
+                      background-color: #2bda53;
+                      border-color: none;
+                    "
                     class="btn btn-md btn-success btn-inner"
                   >
                     change
@@ -261,6 +264,15 @@
               :filter="filter"
               :current-page="currentPage"
               :per-page="perPage"
+              style="
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 31px;
+                letter-spacing: -0.0914285px;
+                color: #6a7e8a;
+              "
             >
               <template v-slot:cell(actions)="data">
                 <b-button variant="light" @click="deleteItem(data.item.id)"
@@ -309,14 +321,13 @@ export default {
       perPage: 5,
       currentPage: 1,
       fields: [
-        { key: "id", label: "ID", variant: 'light' },
-        { key: "firstname", label: "FIRSTNAME", variant: 'light' },
-        { key: "lastname", label: "LASTNAME",variant: 'light' },
-        { key: "email", label: "EMAIL",variant: 'light' },
-        { key: "phone", label: "PHONE", variant: 'light' },
-        { key: "role", label: "ROLE", variant: 'light' },
-        { key: "actions", label: "ACTIONS",  variant: 'light' },
-
+        { key: "id", label: "ID", variant: "light" },
+        { key: "firstname", label: "FIRSTNAME", variant: "light" },
+        { key: "lastname", label: "LASTNAME", variant: "light" },
+        { key: "email", label: "EMAIL", variant: "light" },
+        { key: "phone", label: "PHONE", variant: "light" },
+        { key: "role", label: "ROLE", variant: "light" },
+        { key: "actions", label: "ACTIONS", variant: "light" },
       ],
     };
   },
@@ -534,9 +545,10 @@ div.content {
   color: #013c61;
 }
 
-.customPagination >  {
+.customPagination > {
   color: black;
 }
+
 
 .customPagination.page-item.active .page-link {
   background-color: #2bda53;
